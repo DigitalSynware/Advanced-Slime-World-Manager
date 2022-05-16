@@ -120,7 +120,7 @@ public class v1_9SlimeWorldFormat implements SlimeWorldReader {
 
                 dataStream.read(compressedMapsTag);
             }
-            
+
             // Data decompression
             Zstd.decompress(chunkData, compressedChunkData);
             Zstd.decompress(tileEntities, compressedTileEntities);
