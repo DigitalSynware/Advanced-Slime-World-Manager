@@ -168,12 +168,10 @@ public class v1_9SlimeWorldFormat implements SlimeWorldReader {
                     int chunkZ = ((IntTag) tileEntityCompound.getValue().get("z")).getValue() >> 4;
                     long chunkKey = NmsUtil.asLong(chunkX, chunkZ);
                     SlimeChunk chunk = chunks.get(chunkKey);
-
-                    if (chunk == null) {
-                        throw new CorruptedWorldException(worldName);
+                    if (chunk != null) {
+                        chunk.getTileEntities().add(tileEntityCompound);
                     }
 
-                    chunk.getTileEntities().add(tileEntityCompound);
                 }
             }
 
